@@ -25,12 +25,15 @@ ccTag3 n = ccTag (printf "CCTag3-%02d" n) (ccTag3Radiuses n)
 ccTag4 n = ccTag (printf "CCTag4-%03d" n) (ccTag4Radiuses n)
 
 ccTag :: String -> [Rational] -> Svg
+-- The marker has a diameter of 150 mm with a 60 mm margin around it, fitting
+-- A4 and US Letter.
 ccTag text rs = docTypeSvg ! A.version "1.1"
               ! A.width "210mm" ! A.height "210mm"
               ! A.viewbox "-105 -105 210 210"
               $ elems
   where
     elems = do
+      circle ! A.r "105" ! A.fill "white"  -- Margin.
       sequence_ circles
       text_ (toMarkup text)
         ! A.y "100" ! A.fontSize "15" ! A.textAnchor "middle"
