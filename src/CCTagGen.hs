@@ -13,6 +13,7 @@ import Text.Blaze.Svg.Renderer.Utf8
 import Text.Blaze.Svg11
 import qualified Text.Blaze.Svg11.Attributes as A
 import System.IO
+import Text.Printf
 
 renderSvgFile :: FilePath -> Svg -> IO ()
 renderSvgFile fp svg =
@@ -20,15 +21,20 @@ renderSvgFile fp svg =
     BSL.hPutStr h (renderSvg svg)
 
 ccTag3, ccTag4 :: Int -> Svg
-ccTag3 = ccTag . ccTag3Radiuses
-ccTag4 = ccTag . ccTag4Radiuses
+ccTag3 n = ccTag (printf "CCTag3-%02d" n) (ccTag3Radiuses n)
+ccTag4 n = ccTag (printf "CCTag4-%03d" n) (ccTag4Radiuses n)
 
-ccTag :: [Rational] -> Svg
-ccTag rs = docTypeSvg ! A.version "1.1"
-         ! A.width "210mm" ! A.height "210mm"
-         ! A.viewbox "-105 -105 210 210"
-         $ sequence_ circles
+ccTag :: String -> [Rational] -> Svg
+ccTag text rs = docTypeSvg ! A.version "1.1"
+              ! A.width "210mm" ! A.height "210mm"
+              ! A.viewbox "-105 -105 210 210"
+              $ elems
   where
+    elems = do
+      sequence_ circles
+      text_ (toMarkup text)
+        ! A.y "100" ! A.fontSize "15" ! A.textAnchor "middle"
+        ! A.fill "rgba(0,0,0,0.25)"
     circles = zipWith (!)
       (map (\r -> circle ! A.r (toValue @Double . realToFrac . (75 *) $ r)) rs)
       colors

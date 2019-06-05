@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="210mm" height="210mm" viewBox="-105 -105 210 210"><circle r="75.0" fill="black" /><circle r="69.0" fill="white" /><circle r="60.0" fill="black" /><circle r="51.0" fill="white" /><circle r="45.0" fill="black" /><circle r="36.0" fill="white" /><circle r="27.0" fill="black" /><circle r="18.0" fill="white" /></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="210mm" height="210mm" viewBox="-105 -105 210 210"><circle r="75.0" fill="black" /><circle r="69.0" fill="white" /><circle r="60.0" fill="black" /><circle r="51.0" fill="white" /><circle r="45.0" fill="black" /><circle r="36.0" fill="white" /><circle r="27.0" fill="black" /><circle r="18.0" fill="white" /><text y="100" font-size="15" text-anchor="middle" fill="rgba(0,0,0,0.25)">CCTag4-056</text></svg>
